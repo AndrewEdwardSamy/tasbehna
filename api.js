@@ -2,7 +2,7 @@ const csvContacts = require("./validContacts.js");
 const upload = require("./multerFile.js");
 
 const express = require("express");
-const serverless = require("serverless-http");
+// const serverless = require("serverless-http");
 const ejs = require("ejs");
 const qrcode = require("qrcode");
 const { Client, MessageMedia } = require("whatsapp-web.js");
@@ -42,8 +42,8 @@ const clientReadyPro = (clt, chatId, message) => {
 };
 
 const app = express();
-const router = express.Router();
-// const port = process.env.port || 3000;
+// const router = express.Router();
+const port = process.env.port || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -52,7 +52,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.set("view engine", "ejs");
 
-router.get("/upload", (req, res) => {
+app.get("/upload", (req, res) => {
   res.render("upload");
 });
 
@@ -61,7 +61,7 @@ const cpUpload = upload.fields([
   { name: "images" },
 ]);
 
-router.post("/upload", cpUpload, async (req, res) => {
+app.post("/upload", cpUpload, async (req, res) => {
   let client = new Client();
   client.initialize();
 
@@ -100,13 +100,13 @@ router.post("/upload", cpUpload, async (req, res) => {
   }
 });
 
-router.get("/status", (req, res) => {
+app.get("/status", (req, res) => {
   res.render("status", {
     sendStatus: sendStatus,
   });
 });
 
-app.use("/.netlify/functions/api", router);
-module.exports.handler = serverless(app);
+// app.use("/.netlify/functions/api", router);
+// module.exports.handler = serverless(app);
 
-// app.listen(port, console.log(`Listening on port ${port}`));
+app.listen(port, console.log(`Listening on port ${port}`));
