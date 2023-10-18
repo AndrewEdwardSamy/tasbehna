@@ -52,7 +52,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.set("view engine", "ejs");
 
-app.get("/upload", (req, res) => {
+app.get("/", (req, res) => {
   res.render("upload");
 });
 
