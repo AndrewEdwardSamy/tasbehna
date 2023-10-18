@@ -1,9 +1,10 @@
 {
   "name": "final_bms",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
-    "build": "netlify deploy --prod"
+    "build": "npm start",
+		"start": "node api.js"
   },
   "author": "Andrew Edward",
   "license": "ISC",
@@ -15,10 +16,7 @@
     "path": "^0.12.7",
     "qrcode": "^1.5.3",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.22.1",
-		"netlify-cli": "^12.7.2",
-		"netlify-lambda": "^2.0.15",
-		"serverless-http": "^2.7.0"
+    "whatsapp-web.js": "^1.22.1"
   },
   "description": "Bulk Messages Sender"
 }
