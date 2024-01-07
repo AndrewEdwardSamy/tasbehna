@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <title>Bulk Messages Sender</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="main-header">
+        <a href="https://www.facebook.com/ChoirTasbehna">
+          <img
+            alt="Tasbehna logo"
+            src="img/tasbehna logo black.png"
+            height="100"
+          />
+        </a>
+
+        <!-- <nav>
+          <a href="blog.html">Blog</a>
+          <a href="#">Challenges</a>
+          <a href="#">Flexbox</a>
+          <a href="#">CSS Grid</a>
+        </nav> -->
+      </header>
+      <div class="message-status">
+        <h3 class="h3-status">The status of each message</h3>
+        <!-- prettier-ignore -->
+        <ul>
+          <% for (const contact in sendStatus){%>
+            <%= contact %> : <%= sendStatus[contact] %>
+          <br />
+          <%};%>
+        </ul>
+      </div>
+      <!-- <footer class="footer">
+        <p id="copyright" class="copyright text">
+          Copyright &copy; 2027 by The Code Magazine.
+        </p>
+      </footer> -->
+    </div>
+  </body>
+</html>
