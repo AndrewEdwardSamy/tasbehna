@@ -1,5 +1,7 @@
 const qrcode = require("qrcode-terminal");
 const { Client, MessageMedia } = require("whatsapp-web.js");
+const express = require("express");
+const app = express();
 
 // Use the saved values
 const client = new Client();
@@ -10,7 +12,10 @@ client.on("qr", (qr) => {
   console.log(qr);
 });
 
-client.on("ready", () => {
+
+// route handler
+app.get("/", (req, res) => {
+  client.on("ready", () => {
   // After successful authentication
   console.log("Client is ready!");
   // client.getChats().then((chats) => {
@@ -32,3 +37,14 @@ client.on("ready", () => {
       })
   );
 });
+});
+
+
+
+
+
+
+
+
+
+app.listen(3000);
