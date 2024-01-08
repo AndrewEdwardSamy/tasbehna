@@ -97,7 +97,7 @@ app.post("/upload", cpUpload, async (req, res) => {
 
   // ls = ["201283102140@c.us", "201000000000@c.us"];
   for (const user of users) {
-    // console.log(user);
+    console.log(user);
     clientReadyPro(
       clt,
       user.ph_phone_ph,
