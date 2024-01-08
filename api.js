@@ -35,16 +35,8 @@ app.get("/", (req, res) => {
       .catch((err) => {
         console.log(`🔴 Failed sent to ${element}`);
       })
-  );
+    );
+  });
 });
-});
-
-
-
-
-
-
-
-
 
 app.listen(3000);
