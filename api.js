@@ -55,7 +55,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.set("view engine", "ejs");
 
-app.get("/upload", (req, res) => {
+app.get("/", (req, res) => {
   res.render("upload");
 });
 
@@ -64,7 +64,7 @@ const cpUpload = upload.fields([
   { name: "images" },
 ]);
 
-app.post("/upload", cpUpload, async (req, res) => {
+app.post("/", cpUpload, async (req, res) => {
   let client = new Client();
   client.initialize();
 
